@@ -56,7 +56,7 @@ var parrafo= document.getElementById("warnings");
 
 var User=document.getElementById("Usernamelogin");
 var pass=document.getElementById("passwordLogin");
-var existe = false;
+const existe = false;
 var repetido = false;
 
 
@@ -223,12 +223,12 @@ var repetido = false;
             }
 
                 if (ok == 2){
-                    var existe = false;
                     onChildAdded(refusuarios,(data)=>{
                             if(data.val().Usuario == User.value && data.val().Contraseña == pass.value){
                                 alert("Usuario existe");
-                                onChildAdded.off(refusuarios);
                                 existe = true;
+                                onChildAdded.off(refusuarios);
+                               
                             }
                             else{
                                // alert("Usuario o contraseña incorrectos, intenta nuevamente");
