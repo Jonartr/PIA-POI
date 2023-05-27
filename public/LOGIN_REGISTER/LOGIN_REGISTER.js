@@ -223,19 +223,28 @@ var repetido = false;
             }
 
                 if (ok == 2){
+                    var existe = false;
                     onChildAdded(refusuarios,(data)=>{
                             if(data.val().Usuario == User.value && data.val().Contraseña == pass.value){
                                 alert("Usuario existe");
-                                return true;
+                                onChildAdded.off(refusuarios);
+                                existe = true;
                             }
                             else{
-                                alert("Usuario o contraseña incorrectos, intenta nuevamente");
-                                return false;
+                               // alert("Usuario o contraseña incorrectos, intenta nuevamente");
+                               existe = false;
                             }
                     });
 
                           
 
+                }
+
+                if(existe == true){
+                    return true;
+                }
+                else{
+                    return false;
                 }
              
         });
