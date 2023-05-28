@@ -226,13 +226,13 @@ var repetido = false;
                     onChildAdded(refusuarios,(data)=>{
                             if(data.val().Usuario == User.value && data.val().Contraseña == pass.value){
                                 alert("Usuario existe");
-                                existe = true;
+                                return true;
                                 onChildAdded.off(refusuarios);
                                
                             }
                             else{
                                // alert("Usuario o contraseña incorrectos, intenta nuevamente");
-                               existe = false;
+                              return false;
                             }
                     });
 
@@ -240,12 +240,7 @@ var repetido = false;
 
                 }
 
-                if(existe == true){
-                    return true;
-                }
-                else{
-                    return false;
-                }
+          
              
         });
     
